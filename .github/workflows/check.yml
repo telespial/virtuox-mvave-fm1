@@ -1,0 +1,16 @@
+name: Verify browser instrument
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/build-factory-banks.mjs
+      - run: git diff --exit-code -- docs/play/patches.json docs/play/patches.bin docs/play/default-banks.json docs/play/banks third-party/m-vave/compatibility-adjustments.json
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/check-public.mjs

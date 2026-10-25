@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://telespial.github.io/virtuox-mvave-fm1/sitemap.xml

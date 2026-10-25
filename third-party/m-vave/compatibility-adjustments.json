@@ -1,0 +1,74 @@
+[
+  {
+    "slot": 23,
+    "parameter": 20,
+    "from": 15,
+    "to": 14
+  },
+  {
+    "slot": 36,
+    "parameter": 20,
+    "from": 15,
+    "to": 14
+  },
+  {
+    "slot": 36,
+    "parameter": 44,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 47,
+    "parameter": 139,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 77,
+    "parameter": 137,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 85,
+    "parameter": 104,
+    "from": 15,
+    "to": 14
+  },
+  {
+    "slot": 110,
+    "parameter": 90,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 115,
+    "parameter": 137,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 116,
+    "parameter": 103,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 117,
+    "parameter": 137,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 120,
+    "parameter": 103,
+    "from": 127,
+    "to": 99
+  },
+  {
+    "slot": 124,
+    "parameter": 103,
+    "from": 127,
+    "to": 99
+  }
+]

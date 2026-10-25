@@ -1,0 +1,24 @@
+name: Browser instrument bug
+description: Report a reproducible MIDI, audio, lesson or sequencing problem
+title: '[Bug] '
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser, OS and MIDI device
+      description: Include mode and whether the on-screen keys also reproduce it.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Exact steps and settings
+      description: Include lesson, bank/slot, BPM, timing mode, swing/gate or numbered sequence steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true

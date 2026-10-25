@@ -1,0 +1,4 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{PracticeFlow}from'../docs/play/practice-flow.js';import{makeCatalog}from'../docs/play/lesson-engine.js';
+test('guided course varies material and never repeats a completed lesson',()=>{const f=new PracticeFlow(makeCatalog(),'five'),seen=new Set(['five']);let next;while(next=f.next()){assert.ok(!seen.has(next.id));seen.add(next.id)}assert.ok(seen.size>=20);assert.equal(f.next(),null);});
+test('manual song selection starts a course from that selection',()=>{const f=new PracticeFlow(makeCatalog(),'ode');assert.equal(f.current,'ode');assert.equal(f.next().id,'scale-0-major');});
+test('a right-hand-only course skips left-hand-only studies',()=>{const f=new PracticeFlow(makeCatalog(),'twinkle','R');assert.equal(f.next().id,'rhythm-1');});
