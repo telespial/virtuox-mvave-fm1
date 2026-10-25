@@ -12,7 +12,7 @@ VirtuoX is an independent, open-source music-learning instrument by Richard Habe
 
 ## What you can use today
 
-- **Piano Coach:** 72 supplied studies, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
+- **Piano Coach:** 88 supplied studies plus 10 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
 - **Core Matrix:** combine songs, basic music theory, scales, chords, rhythm and technique in GLO → Learning. Concept cards explain the musical task before playing.
 - **Pulse:** optional accuracy-based tempo adjustment between exercises or repeated loops. It does not continuously alter tempo during a phrase.
 - **DX7 Player:** free play without lessons or scores; six-operator FM synthesis with 32 algorithms, sound macros, six operator-edit pages, envelopes and LFO.
@@ -93,3 +93,7 @@ Coach/UI adaptations are GPL-3.0-only. Panel code is adapted from JIANT by Juan 
 Synthesis: `tetorica-msfa-dx7-wasm` 0.3.1, derived from Google MSFA and the Dexed lineage, Apache-2.0. DotGothic16: SIL OFL 1.1. M-VAVE factory data: separate Apache-2.0 attribution. See [LICENSE](LICENSE), [THIRD_PARTY.md](THIRD_PARTY.md) and component notices.
 
 M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. VirtuoX is independent and is not affiliated with or endorsed by those companies or JIANT. The VirtuoX name is a project label, not a claim of exclusive trademark rights; similarly named products exist outside this project.
+
+## Expressive synth studies and firmware research
+
+Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 16 original artist-inspired studies and ten attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
