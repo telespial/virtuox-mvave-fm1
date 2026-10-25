@@ -20,7 +20,7 @@ if(saved.scoringVersion!==2&&settings.learner==='Adult'){settings.wait=false;if(
 if(saved.flowVersion!==1){settings.loop=false;settings.autoContinue=true;}
 gameLCD.motion=settings.motion;gameLCD.visualMode=settings.visualMode;
 let progress=saved.progress||{},favorites=new Set(saved.favorites||[]),patches=[],patchBytes=null,patchIndex=0,category='4 Banks',imported=[],selectedName='E.PIANO 1',soundLoading=false,lastButtons=0,lastMask=0,held=new Map(),sourceNotes=new Map(),sustain=false,sustained=new Set(),timers=[],feedback='Choose a lesson. Press PLAY.',feedbackUntil=0,flashUntil=0,recording=false,recordStart=0,recorded=[],composer={steps:Array.from({length:64},()=>[]),length:16,cursor:0,gate:75,swing:0,velocity:90,playing:false,loop:true,playhead:-1},midiAccess=null,inputChoice='',hardwareReceive=false,lessonFilter='All',lessonQuery='';
-const sequencer=new StepSequencer({schedule:(fn,delay)=>setTimeout(fn,delay),cancel:id=>clearTimeout(id),getState:()=>({...composer,bpm:settings.bpm}),on:(n,v,token)=>playNote(n,v,token,false),off:(n,token)=>releaseNote(n,token,false),onStep:i=>{composer.playhead=i;renderSequenceGrid()},onStop:()=>{composer.playing=false;composer.playhead=-1;}});
+const sequencer=new StepSequencer({schedule:(fn,delay)=>setTimeout(fn,delay),cancel:id=>clearTimeout(id),getState:()=>({...composer,bpm:settings.bpm}),on:(n,v,token)=>playNote(n,v,token,false),off:(n,token)=>releaseNote(n,token,false),onStep:i=>{composer.playhead=i;renderSequenceGrid()},onStop:()=>{composer.playing=false;composer.playhead=-1;renderSequenceGrid();if(powered)$('state-label').textContent=isPlayer()?'DX7 PLAYER / READY':'COACH / READY';}});
 const panelPitches=new Map();
 const presetPicker=new PresetPicker();
 let defaultBanks=[];
