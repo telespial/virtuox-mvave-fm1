@@ -111,3 +111,7 @@ In Piano Coach, press GLO and turn SELECT to page 8, Learning style. The four kn
 ## Artist track collections
 
 M Dean inspired, Jarre inspired, Draik and Dok Dree each contain 20 original 8–16-bar tracks with contrasting four-bar sections, explicit harmonic plans, answering motifs, five progression levels, matching sound recipes, MIDI export and full-track demos. These are original learning compositions drawing on broad musical techniques, not transcriptions or reconstructions of artist songs. Bach has four complete attributed Mutopia MIDI editions (BWV 772, 773, 846 and 933). REC on GLO Learning style demos the selected track; browser cards provide Demo track / Demo complete piece. The top style-demo button remains a short preview.
+
+## Keyboard range
+
+FM-1 range (default): all lesson targets and style demos stay on the fixed 27-key F3–G5 panel. Whole octave shifts preserve intervals when possible; wide scores use compact octave voicings and may merge doubled notes. GLO → Practice flow → knob 4, or Practice setup → Keyboard range, selects Original register for external keyboards. Original MIDI downloads are preserved.

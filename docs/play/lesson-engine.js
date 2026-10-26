@@ -35,10 +35,27 @@ add('pop-hands','Pop progression · two hands','Two hands',4,accompaniment(phras
 add('blues','12-bar blues bass','Production',4,phrase(Array.from({length:12},(_,bar)=>{const root=[48,48,48,48,53,53,48,48,55,53,48,55][bar];return [root,root+4,root+7,root+9,root+10,root+9,root+7,root+4]}).flat(),Array(96).fill(.5),{hand:'L'}),'A full 12-bar bass study. Use the loop controls.',84);
 add('synth-groove','Synth bass · 16-bar groove','Production',4,phrase(Array.from({length:16},(_,b)=>{const r=[36,36,41,43][Math.floor(b/4)];return [r,r+12,r+7,r,r+10,r+7,r+12,r+7]}).flat(),Array(128).fill(.5),{hand:'L'}),'Try an analog-inspired bass patch; shape the filter.',104);
 return list.map(l=>{const beatsPerBar=l.id.startsWith('minuet')?3:4;return {...l,beatsPerBar,bars:Math.ceil(Math.max(...l.events.map(e=>e.beat+e.duration))/beatsPerBar)}})}
+// The panel scans 27 consecutive pitches: F3 through G5 at its home octave.
+export const FM1_RANGE=Object.freeze([53,79]);
+// Preserve pitch classes and rhythm. Prefer a whole-piece octave shift; only
+// wide scores need individual octave folding (a compact learning arrangement).
+export function keyboardArrangement(lesson,{keyboardRange='FM1',transpose=0}={}){
+ const shifted=lesson.events.map(e=>({...e,notes:e.notes.map(n=>n+transpose)}));
+ if(keyboardRange!=='FM1')return {...lesson,events:shifted,rangeAdaptation:'Original register'};
+ const [low,high]=FM1_RANGE,notes=shifted.flatMap(e=>e.notes);
+ let shift=0,best=Infinity;
+ for(let oct=-11;oct<=11;oct++){
+  const delta=oct*12,cost=notes.reduce((sum,n)=>sum+(n+delta<low?low-n-delta:n+delta>high?n+delta-high:0),0)*1000+Math.abs(delta);
+  if(cost<best){best=cost;shift=delta;}
+ }
+ let folded=false;const events=shifted.map(e=>({...e,notes:[...new Set(e.notes.map(n=>{let pitch=n+shift;while(pitch<low)pitch+=12;while(pitch>high)pitch-=12;if(pitch!==n+shift)folded=true;return pitch;}))]}));
+ return {...lesson,events,rangeAdaptation:folded?'FM-1 compact arrangement':shift?'FM-1 octave arrangement':'FM-1 original register'};
+}
 export function prepareEvents(lesson,settings){
  const beatMs=60000/settings.bpm,startBeat=(settings.loopStart-1)*(lesson.beatsPerBar||4),endBeat=settings.loopEnd*(lesson.beatsPerBar||4);
- const source=lesson.events.filter(e=>e.beat>=startBeat&&e.beat<endBeat&&(settings.hand==='Both'||settings.hand===e.hand));
- const groups=new Map();for(const e of source){const key=Math.round(e.beat*100000);if(!groups.has(key))groups.set(key,{beat:e.beat,notes:[],lengths:[],velocities:[],hands:[],fingers:[],onset:(e.beat-startBeat)*beatMs,length:e.duration*beatMs});const g=groups.get(key);for(const n of e.notes){const nn=clamp(n+settings.transpose,0,127);if(g.notes.includes(nn))continue;g.notes.push(nn);g.lengths.push(e.duration*beatMs);g.velocities.push(e.velocity??90);g.hands.push(e.hand||'R');g.fingers.push(e.finger||null)}g.length=Math.max(g.length,e.duration*beatMs)}
+ const arranged=keyboardArrangement(lesson,{keyboardRange:settings.keyboardRange||'Original',transpose:settings.transpose||0});
+ const source=arranged.events.filter(e=>e.beat>=startBeat&&e.beat<endBeat&&(settings.hand==='Both'||settings.hand===e.hand));
+ const groups=new Map();for(const e of source){const key=Math.round(e.beat*100000);if(!groups.has(key))groups.set(key,{beat:e.beat,notes:[],lengths:[],velocities:[],hands:[],fingers:[],onset:(e.beat-startBeat)*beatMs,length:e.duration*beatMs});const g=groups.get(key);for(const n of e.notes){const nn=clamp(n,0,127);if(g.notes.includes(nn))continue;g.notes.push(nn);g.lengths.push(e.duration*beatMs);g.velocities.push(e.velocity??90);g.hands.push(e.hand||'R');g.fingers.push(e.finger||null)}g.length=Math.max(g.length,e.duration*beatMs)}
  return [...groups.values()].sort((a,b)=>a.onset-b.onset).map((e,i)=>({...e,id:i,status:e.notes.map(()=>0)}));
 }
 export class LessonSession{
