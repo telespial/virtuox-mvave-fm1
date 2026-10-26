@@ -103,3 +103,7 @@ Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent p
 ## Player display and editing
 
 The Player LCD uses measured output audio for its scope, actual held-note/velocity feedback, per-page ENV/LFO/FX diagrams and a sequencer piano roll. ENV adds independent operator and pitch R1–R4/L1–L4 editing; LFO adds amplitude depth, delay, operator amplitude sensitivity and sync controls. These diagrams distinguish measured audio from schematic parameter views. PLAY runs the existing sequence from sound pages; SAVE/PLAY store and recall the selected project from the Projects page.
+
+## LCD learning styles and style demos
+
+In Piano Coach, press GLO and turn SELECT to page 8, Learning style. The four knobs select style, lesson, difficulty and tempo. PLAY starts the selected lesson with its matching sound; REC previews a curated, ungraded two-pass phrase for that style, and REC again stops it. The browser also has Demo selected style buttons in the library and on this page. Mozart/Bach editions load directly from local MIDI assets with loading/error feedback on the LCD. The selected lesson remains selected while a demo plays. These controls run in the browser panel; native VirtuoX firmware remains unfinished.
