@@ -99,3 +99,7 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. Vi
 Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 16 original artist-inspired studies and ten attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
 
 Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
+
+## Player display and editing
+
+The Player LCD uses measured output audio for its scope, actual held-note/velocity feedback, per-page ENV/LFO/FX diagrams and a sequencer piano roll. ENV adds independent operator and pitch R1–R4/L1–L4 editing; LFO adds amplitude depth, delay, operator amplitude sensitivity and sync controls. These diagrams distinguish measured audio from schematic parameter views. PLAY runs the existing sequence from sound pages; SAVE/PLAY store and recall the selected project from the Projects page.
