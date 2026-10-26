@@ -115,3 +115,7 @@ M Dean inspired, Jarre inspired, Draik and Dok Dree each contain 20 original 8�
 ## Keyboard range
 
 FM-1 range (default): all lesson targets and style demos stay on the fixed 27-key F3–G5 panel. Whole octave shifts preserve intervals when possible; wide scores use compact octave voicings and may merge doubled notes. GLO → Practice flow → knob 4, or Practice setup → Keyboard range, selects Original register for external keyboards. Original MIDI downloads are preserved.
+
+## Continuous demos and installed sound libraries
+
+Choose Installed sound library in Sounds or Styles, or GLO → Instrument mode → knob 3. Automatic lesson sounds select real patches from that installed set, varying by track and musical role. Explicit analog recipes and Keep current sound remain available. Style demos continue through the selected style and wrap until stopped; disable Continue demos for a single track. Listen also continues through the current learning path. Drag a knob around its rim clockwise to increase or counterclockwise to decrease; dragging from its center supports up/right to increase and down/left to decrease.

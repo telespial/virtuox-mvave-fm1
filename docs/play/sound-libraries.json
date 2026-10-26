@@ -1,0 +1,683 @@
+{
+  "default": "factory",
+  "libraries": [
+    {
+      "id": "factory",
+      "name": "FM-1 factory \u00b7 128 patches",
+      "banks": [
+        {
+          "id": "A",
+          "rom": "FM1-A",
+          "name": "Original FM-1 factory A",
+          "file": "banks/FM1-A.syx",
+          "entries": [
+            {
+              "slot": 1,
+              "patchIndex": 0,
+              "name": "PIANO 1"
+            },
+            {
+              "slot": 2,
+              "patchIndex": 1,
+              "name": "ORGAN 1"
+            },
+            {
+              "slot": 3,
+              "patchIndex": 2,
+              "name": "SYN LEAD 1"
+            },
+            {
+              "slot": 4,
+              "patchIndex": 3,
+              "name": "SYN PAD 1"
+            },
+            {
+              "slot": 5,
+              "patchIndex": 4,
+              "name": "PIANO 2"
+            },
+            {
+              "slot": 6,
+              "patchIndex": 5,
+              "name": "Organ 2"
+            },
+            {
+              "slot": 7,
+              "patchIndex": 6,
+              "name": "SYN LEAD 2"
+            },
+            {
+              "slot": 8,
+              "patchIndex": 7,
+              "name": "SYN PAD 2"
+            },
+            {
+              "slot": 9,
+              "patchIndex": 8,
+              "name": "PIANO3"
+            },
+            {
+              "slot": 10,
+              "patchIndex": 9,
+              "name": "ORGAN 3"
+            },
+            {
+              "slot": 11,
+              "patchIndex": 10,
+              "name": "SYN LEAD 3"
+            },
+            {
+              "slot": 12,
+              "patchIndex": 11,
+              "name": "SYN PAD 3"
+            },
+            {
+              "slot": 13,
+              "patchIndex": 12,
+              "name": "PIANO 4"
+            },
+            {
+              "slot": 14,
+              "patchIndex": 13,
+              "name": "ORGAN 4"
+            },
+            {
+              "slot": 15,
+              "patchIndex": 14,
+              "name": "SYN LEAD 4"
+            },
+            {
+              "slot": 16,
+              "patchIndex": 15,
+              "name": "SYN PAD 4"
+            },
+            {
+              "slot": 17,
+              "patchIndex": 16,
+              "name": "PIANO 5"
+            },
+            {
+              "slot": 18,
+              "patchIndex": 17,
+              "name": "ORGAN 5"
+            },
+            {
+              "slot": 19,
+              "patchIndex": 18,
+              "name": "SYN LEAD 5"
+            },
+            {
+              "slot": 20,
+              "patchIndex": 19,
+              "name": "SYN PAD 5"
+            },
+            {
+              "slot": 21,
+              "patchIndex": 20,
+              "name": "PIANO 6"
+            },
+            {
+              "slot": 22,
+              "patchIndex": 21,
+              "name": "ORGAN 6"
+            },
+            {
+              "slot": 23,
+              "patchIndex": 22,
+              "name": "SYN LEAD 6"
+            },
+            {
+              "slot": 24,
+              "patchIndex": 23,
+              "name": "SYN PAD 6"
+            },
+            {
+              "slot": 25,
+              "patchIndex": 24,
+              "name": "PIANO 7"
+            },
+            {
+              "slot": 26,
+              "patchIndex": 25,
+              "name": "ORGAN 7"
+            },
+            {
+              "slot": 27,
+              "patchIndex": 26,
+              "name": "SYN LEAD 7"
+            },
+            {
+              "slot": 28,
+              "patchIndex": 27,
+              "name": "SYN PAD 7"
+            },
+            {
+              "slot": 29,
+              "patchIndex": 28,
+              "name": "PIANO 8"
+            },
+            {
+              "slot": 30,
+              "patchIndex": 29,
+              "name": "ORGAN 8"
+            },
+            {
+              "slot": 31,
+              "patchIndex": 30,
+              "name": "SYN LEAD 8"
+            },
+            {
+              "slot": 32,
+              "patchIndex": 31,
+              "name": "SYN PAD 8"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "rom": "FM1-B",
+          "name": "Original FM-1 factory B",
+          "file": "banks/FM1-B.syx",
+          "entries": [
+            {
+              "slot": 1,
+              "patchIndex": 32,
+              "name": "GUITAR 1"
+            },
+            {
+              "slot": 2,
+              "patchIndex": 33,
+              "name": "DS GUITAR1"
+            },
+            {
+              "slot": 3,
+              "patchIndex": 34,
+              "name": "BASS 1"
+            },
+            {
+              "slot": 4,
+              "patchIndex": 35,
+              "name": "SYN BASS1"
+            },
+            {
+              "slot": 5,
+              "patchIndex": 36,
+              "name": "GUITAR 2"
+            },
+            {
+              "slot": 6,
+              "patchIndex": 37,
+              "name": "DS GUITAR2"
+            },
+            {
+              "slot": 7,
+              "patchIndex": 38,
+              "name": "BASS 2"
+            },
+            {
+              "slot": 8,
+              "patchIndex": 39,
+              "name": "SYN BASS2"
+            },
+            {
+              "slot": 9,
+              "patchIndex": 40,
+              "name": "GUITAR 3"
+            },
+            {
+              "slot": 10,
+              "patchIndex": 41,
+              "name": "DS GUITAR3"
+            },
+            {
+              "slot": 11,
+              "patchIndex": 42,
+              "name": "BASS 3"
+            },
+            {
+              "slot": 12,
+              "patchIndex": 43,
+              "name": "SYN BASS3"
+            },
+            {
+              "slot": 13,
+              "patchIndex": 44,
+              "name": "GUITAR 4"
+            },
+            {
+              "slot": 14,
+              "patchIndex": 45,
+              "name": "DS GUITAR4"
+            },
+            {
+              "slot": 15,
+              "patchIndex": 46,
+              "name": "BASS 4"
+            },
+            {
+              "slot": 16,
+              "patchIndex": 47,
+              "name": "SYN BASS4"
+            },
+            {
+              "slot": 17,
+              "patchIndex": 48,
+              "name": "GUITAR 5"
+            },
+            {
+              "slot": 18,
+              "patchIndex": 49,
+              "name": "DS GUITAR5"
+            },
+            {
+              "slot": 19,
+              "patchIndex": 50,
+              "name": "BASS 5"
+            },
+            {
+              "slot": 20,
+              "patchIndex": 51,
+              "name": "SYN BASS5"
+            },
+            {
+              "slot": 21,
+              "patchIndex": 52,
+              "name": "GUITAR 6"
+            },
+            {
+              "slot": 22,
+              "patchIndex": 53,
+              "name": "DS GUITAR6"
+            },
+            {
+              "slot": 23,
+              "patchIndex": 54,
+              "name": "BASS 6"
+            },
+            {
+              "slot": 24,
+              "patchIndex": 55,
+              "name": "SYN BASS6"
+            },
+            {
+              "slot": 25,
+              "patchIndex": 56,
+              "name": "GUITAR 7"
+            },
+            {
+              "slot": 26,
+              "patchIndex": 57,
+              "name": "DS GUITAR7"
+            },
+            {
+              "slot": 27,
+              "patchIndex": 58,
+              "name": "BASS 7"
+            },
+            {
+              "slot": 28,
+              "patchIndex": 59,
+              "name": "SYN BASS7"
+            },
+            {
+              "slot": 29,
+              "patchIndex": 60,
+              "name": "GUITAR 8"
+            },
+            {
+              "slot": 30,
+              "patchIndex": 61,
+              "name": "DS GUITAR8"
+            },
+            {
+              "slot": 31,
+              "patchIndex": 62,
+              "name": "BASS 8"
+            },
+            {
+              "slot": 32,
+              "patchIndex": 63,
+              "name": "SYN BASS8"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "rom": "FM1-C",
+          "name": "Original FM-1 factory C",
+          "file": "banks/FM1-C.syx",
+          "entries": [
+            {
+              "slot": 1,
+              "patchIndex": 64,
+              "name": "BRASS 1"
+            },
+            {
+              "slot": 2,
+              "patchIndex": 65,
+              "name": "WOODWIND 1"
+            },
+            {
+              "slot": 3,
+              "patchIndex": 66,
+              "name": "STRING 1"
+            },
+            {
+              "slot": 4,
+              "patchIndex": 67,
+              "name": "VOICE 1"
+            },
+            {
+              "slot": 5,
+              "patchIndex": 68,
+              "name": "BRASS 2"
+            },
+            {
+              "slot": 6,
+              "patchIndex": 69,
+              "name": "WOODWIND 2"
+            },
+            {
+              "slot": 7,
+              "patchIndex": 70,
+              "name": "STRING 2"
+            },
+            {
+              "slot": 8,
+              "patchIndex": 71,
+              "name": "VOICE 2"
+            },
+            {
+              "slot": 9,
+              "patchIndex": 72,
+              "name": "BRASS 3"
+            },
+            {
+              "slot": 10,
+              "patchIndex": 73,
+              "name": "WOODWIND 3"
+            },
+            {
+              "slot": 11,
+              "patchIndex": 74,
+              "name": "STRING 3"
+            },
+            {
+              "slot": 12,
+              "patchIndex": 75,
+              "name": "VOICE 3"
+            },
+            {
+              "slot": 13,
+              "patchIndex": 76,
+              "name": "BRASS 4"
+            },
+            {
+              "slot": 14,
+              "patchIndex": 77,
+              "name": "WOODWIND 4"
+            },
+            {
+              "slot": 15,
+              "patchIndex": 78,
+              "name": "STRING 4"
+            },
+            {
+              "slot": 16,
+              "patchIndex": 79,
+              "name": "VOICE 4"
+            },
+            {
+              "slot": 17,
+              "patchIndex": 80,
+              "name": "BRASS 5"
+            },
+            {
+              "slot": 18,
+              "patchIndex": 81,
+              "name": "WOODWIND 5"
+            },
+            {
+              "slot": 19,
+              "patchIndex": 82,
+              "name": "STRING 5"
+            },
+            {
+              "slot": 20,
+              "patchIndex": 83,
+              "name": "VOICE 5"
+            },
+            {
+              "slot": 21,
+              "patchIndex": 84,
+              "name": "BRASS 6"
+            },
+            {
+              "slot": 22,
+              "patchIndex": 85,
+              "name": "WOODWIND 6"
+            },
+            {
+              "slot": 23,
+              "patchIndex": 86,
+              "name": "STRING 6"
+            },
+            {
+              "slot": 24,
+              "patchIndex": 87,
+              "name": "VOICE 6"
+            },
+            {
+              "slot": 25,
+              "patchIndex": 88,
+              "name": "BRASS 7"
+            },
+            {
+              "slot": 26,
+              "patchIndex": 89,
+              "name": "WOODWIND 7"
+            },
+            {
+              "slot": 27,
+              "patchIndex": 90,
+              "name": "STRING 7"
+            },
+            {
+              "slot": 28,
+              "patchIndex": 91,
+              "name": "VOICE 7"
+            },
+            {
+              "slot": 29,
+              "patchIndex": 92,
+              "name": "BRASS 8"
+            },
+            {
+              "slot": 30,
+              "patchIndex": 93,
+              "name": "WOODWIND 8"
+            },
+            {
+              "slot": 31,
+              "patchIndex": 94,
+              "name": "STRING 8"
+            },
+            {
+              "slot": 32,
+              "patchIndex": 95,
+              "name": "VOICE 8"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "rom": "FM1-D",
+          "name": "Original FM-1 factory D",
+          "file": "banks/FM1-D.syx",
+          "entries": [
+            {
+              "slot": 1,
+              "patchIndex": 96,
+              "name": "BOWOAN"
+            },
+            {
+              "slot": 2,
+              "patchIndex": 97,
+              "name": "BDWHOCARES"
+            },
+            {
+              "slot": 3,
+              "patchIndex": 98,
+              "name": "BLOCK"
+            },
+            {
+              "slot": 4,
+              "patchIndex": 99,
+              "name": "WAVES"
+            },
+            {
+              "slot": 5,
+              "patchIndex": 100,
+              "name": "FROGBELL"
+            },
+            {
+              "slot": 6,
+              "patchIndex": 101,
+              "name": "ELECT.GONG"
+            },
+            {
+              "slot": 7,
+              "patchIndex": 102,
+              "name": "TORIMTORA2"
+            },
+            {
+              "slot": 8,
+              "patchIndex": 103,
+              "name": "MONO M"
+            },
+            {
+              "slot": 9,
+              "patchIndex": 104,
+              "name": "TIBET"
+            },
+            {
+              "slot": 10,
+              "patchIndex": 105,
+              "name": "LOG DRUM"
+            },
+            {
+              "slot": 11,
+              "patchIndex": 106,
+              "name": "COWBELL"
+            },
+            {
+              "slot": 12,
+              "patchIndex": 107,
+              "name": "MONO Z"
+            },
+            {
+              "slot": 13,
+              "patchIndex": 108,
+              "name": "FINGERCYM"
+            },
+            {
+              "slot": 14,
+              "patchIndex": 109,
+              "name": "TIMPANI"
+            },
+            {
+              "slot": 15,
+              "patchIndex": 110,
+              "name": "TAMBOURINE"
+            },
+            {
+              "slot": 16,
+              "patchIndex": 111,
+              "name": "DESCENT"
+            },
+            {
+              "slot": 17,
+              "patchIndex": 112,
+              "name": "CLANG BELL"
+            },
+            {
+              "slot": 18,
+              "patchIndex": 113,
+              "name": "STEEL DRUM"
+            },
+            {
+              "slot": 19,
+              "patchIndex": 114,
+              "name": "CONGA"
+            },
+            {
+              "slot": 20,
+              "patchIndex": 115,
+              "name": "SAW EM UP"
+            },
+            {
+              "slot": 21,
+              "patchIndex": 116,
+              "name": "BI   BEN"
+            },
+            {
+              "slot": 22,
+              "patchIndex": 117,
+              "name": "KALIMBA"
+            },
+            {
+              "slot": 23,
+              "patchIndex": 118,
+              "name": "GAMALONG"
+            },
+            {
+              "slot": 24,
+              "patchIndex": 119,
+              "name": "SAW EM UP2"
+            },
+            {
+              "slot": 25,
+              "patchIndex": 120,
+              "name": "TUB BELLS"
+            },
+            {
+              "slot": 26,
+              "patchIndex": 121,
+              "name": "BRUSHES"
+            },
+            {
+              "slot": 27,
+              "patchIndex": 122,
+              "name": "TOM TOMS"
+            },
+            {
+              "slot": 28,
+              "patchIndex": 123,
+              "name": "SAW EM UP3"
+            },
+            {
+              "slot": 29,
+              "patchIndex": 124,
+              "name": "ECHO"
+            },
+            {
+              "slot": 30,
+              "patchIndex": 125,
+              "name": "TIMBALI"
+            },
+            {
+              "slot": 31,
+              "patchIndex": 126,
+              "name": "PERCUSSION"
+            },
+            {
+              "slot": 32,
+              "patchIndex": 127,
+              "name": "WHAT IF"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

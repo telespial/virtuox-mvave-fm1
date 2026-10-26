@@ -1,3 +1,4 @@
+import {RotaryGesture} from './encoder-input.js?v=0.7.0';
 /* SPDX-License-Identifier: GPL-3.0-only
 FM-1 panel adapted from JIANT / Felucca / X0X. See credits.html. */
 const NS = "http://www.w3.org/2000/svg";
@@ -198,14 +199,12 @@ function bindKnob(k) {
   k.hit.addEventListener("pointerdown", (e) => {
     e.preventDefault();
     k.hit.setPointerCapture(e.pointerId);
-    drag = { y: e.clientY, acc: 0 };
+    const box=k.hit.getBoundingClientRect();drag=new RotaryGesture(e.clientX,e.clientY,box.left+box.width/2,box.top+box.height*.61,Math.min(box.width,box.height)/2);
   });
   k.hit.addEventListener("pointermove", (e) => {
     if (!drag) return;
-    drag.acc += drag.y - e.clientY;
-    drag.y = e.clientY;
-    const step = k.role === "master" ? 3 : 8, n = Math.trunc(drag.acc / step);
-    if (n) { drag.acc -= n * step; turn(k, n); }
+    const n=drag.move(e.clientX,e.clientY);
+    if(n)turn(k,n);
   });
   const end = () => { drag = null; };
   k.hit.addEventListener("pointerup", end);
