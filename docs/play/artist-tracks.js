@@ -1,3 +1,4 @@
+import {arrangeStyle} from './style-arrangers.js?v=0.11.0';
 import {EXTRA_PLANS} from './expanded-track-plans.js?v=0.9.0';
 // SPDX-License-Identifier: GPL-3.0-only
 // Original musical plans/event data: CC0-1.0. No artist melodies or song transcriptions.
@@ -122,12 +123,13 @@ export function makeArtistTracks(){
     }at+=length;
    }
   }
+  const arranged=arrangeStyle({style,index,tonic,roots,themes,texture,soundRecipe,bars,meter,scale});
   events.sort((a,b)=>a.beat-b.beat);
   const label=style==='M Dean inspired'?'M Dean':style==='Jarre inspired'?'Jarre':style==='Moog fundamentals'?'Moog':style==='Bach'?'Baroque study':style==='Mozart'?'Chamber study':style;
-  result.push({id:'style-'+id,name:label+' · '+title,style,group:'Style tracks',subject:'Songs',level:Math.floor(index/5)+1,events,bars,bpm,beatsPerBar:meter,soundRecipe,trackNumber:index+1,trackCount:PLANS[style].length,texture,mode,
+  result.push({id:'style-'+id,name:label+' · '+title,style,group:'Style tracks',subject:'Songs',level:Math.floor(index/5)+1,events,bars,bpm,beatsPerBar:meter,soundRecipe,...(arranged||{}),trackNumber:index+1,trackCount:PLANS[style].length,texture:arranged?.texture||texture,mode,
    sections:Array.from({length:bars/4},(_,i)=>({name:['Theme A','Theme B','Bridge','Coda'][i],firstBar:i*4+1,lastBar:i*4+4})),
-   tip:'Original '+bars+'-bar track: '+focus+'. Learn one four-bar section at a time, then connect the arrangement.',
-   explanation:'Practice '+focus+' through changing harmony and an answering phrase. This is an original VirtuoX composition inspired by broad musical techniques, not a transcription of an artist or composer work.',
+   tip:(arranged?arranged.arrangementIdentity+' · '+arranged.groove+'. ':'')+'Original '+bars+'-bar track: '+(style==='Moog fundamentals'?'single-note '+(arranged?.texture||texture)+' articulation and phrase development':focus)+'. Learn one four-bar section at a time, then connect the arrangement.',
+   explanation:(arranged?arranged.identityDetail+' ':'')+'Practice '+(style==='Moog fundamentals'?'monophonic phrasing':focus)+' through changing harmony and an answering phrase. This is an original VirtuoX composition inspired by broad musical techniques, not a transcription of an artist or composer work.',
    task:'Use the bar-loop controls for each section. Sound-control gestures are practice prompts, not graded.',
    formula:'Original VirtuoX track · CC0 · '+meter+'/4 · '+(bars===8?'A / B':bars===12?'A / B / bridge':'A / B / bridge / coda'),license:'CC0-1.0',composer:'VirtuoX original'});
  });return result;

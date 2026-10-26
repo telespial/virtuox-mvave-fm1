@@ -1,4 +1,4 @@
-import {makeArtistTracks} from './artist-tracks.js?v=0.9.0';
+import {makeArtistTracks} from './artist-tracks.js?v=0.11.0';
 // SPDX-License-Identifier: GPL-3.0-only
 // Musical event data in the original VirtuoX studies below is dedicated to CC0-1.0.
 export const STYLES=['All','M Dean inspired','Jarre inspired','Moog fundamentals','Drayk','Dr Dray','Mozart','Bach','Classical'];
