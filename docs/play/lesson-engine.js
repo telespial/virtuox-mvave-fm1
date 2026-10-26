@@ -63,6 +63,8 @@ export class LessonSession{
   this.settings={...settings};this.events=prepareEvents(lesson,settings);this.started=now+settings.countIn*60000/settings.bpm;this.index=0;this.correct=0;this.wrong=0;this.missed=0;this.streak=0;this.maxStreak=0;this.timing=[];this.lengths=[];this.velocities=[];this.activeNotes=new Map();this.heldNotes=new Set();this.waitAnchor=this.started;this.last='Ready';this.done=!this.events.length;this.total=this.events.reduce((n,e)=>n+e.notes.length,0);
   for(const e of this.events)e.candidates=new Map();
  }
+ // Preserve the beat at the playhead, count-in and remaining held-note duration.
+ setTempo(bpm,now){const old=this.settings.bpm;if(bpm===old)return;const ratio=old/bpm;this.started=now-(now-this.started)*ratio;for(const e of this.events){e.onset*=ratio;e.length*=ratio;e.lengths=e.lengths.map(n=>n*ratio);}for(const held of this.activeNotes.values()){const elapsed=Math.max(0,now-held.on);held.length=elapsed+Math.max(0,held.length-elapsed)*ratio;}this.settings.bpm=bpm;}
  get target(){return this.events[this.index]}
  get beatMs(){return 60000/this.settings.bpm}
  get isWait(){return this.settings.wait}
