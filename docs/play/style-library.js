@@ -1,15 +1,20 @@
 // SPDX-License-Identifier: GPL-3.0-only
 // Musical event data in the original VirtuoX studies below is dedicated to CC0-1.0.
 import {phrase} from './lesson-engine.js';
-export const STYLES=['All','M Dean inspired','Jarre inspired','Moog fundamentals','Mozart','Bach','Classical'];
+export const STYLES=['All','M Dean inspired','Jarre inspired','Moog fundamentals','Draik','Dok Dree','Mozart','Bach','Classical'];
 export const SOUND_RECIPES=[
  {name:'Keep current sound'},
  {name:'Moog-style deep bass',analog:0,params:{mono:true,legato:true,glide:16,cutoff:650,resonance:4,sub:45,attack:2,decay:32,sustain:65,release:9},fx:{reverb:5,delay:0,chorus:0}},
  {name:'Expressive mono lead',analog:1,params:{mono:true,legato:true,glide:22,cutoff:2100,resonance:6,attack:6,release:28},fx:{reverb:22,delay:16,time:375,feedback:24}},
  {name:'Wide cinematic pad',analog:4,params:{mono:false,attack:44,sustain:85,release:62,cutoff:2800},fx:{reverb:40,chorus:35,delay:8}},
  {name:'Sequenced analog pluck',analog:3,params:{mono:false,attack:1,decay:22,sustain:18,release:8,cutoff:1600,envDepth:75},fx:{delay:23,time:375,feedback:28,reverb:15}},
- {name:'Warm classical synth',analog:2,params:{mono:false,attack:8,release:24,cutoff:3800},fx:{reverb:20,chorus:12,delay:0}}
+ {name:'Warm classical synth',analog:2,params:{mono:false,attack:8,release:24,cutoff:3800},fx:{reverb:20,chorus:12,delay:0}},
+ {name:'Nocturne velvet keys',analog:2,params:{mono:false,attack:5,decay:55,sustain:62,release:38,cutoff:1900,resonance:1,detune:9,sub:12,drive:3,envDepth:22},fx:{reverb:28,room:60,chorus:22,delay:9,time:420,feedback:22},lfo:{speed:13,depth:2,wave:4,sensitivity:2,target:0}},
+ {name:'West Coast glide lead',analog:1,params:{mono:true,legato:true,glide:28,attack:2,decay:35,sustain:90,release:13,cutoff:4400,resonance:2,detune:5,sub:4,drive:9,envDepth:18},fx:{reverb:12,delay:14,time:310,feedback:18,chorus:0},lfo:{speed:28,depth:8,wave:4,sensitivity:3,target:0}},
+ {name:'Bright chamber keys',analog:2,params:{mono:false,attack:2,decay:44,sustain:45,release:13,cutoff:6500,resonance:1,detune:2,sub:8,envDepth:30},fx:{reverb:12,chorus:0,delay:0}}
+
 ];
+export const STYLE_RECIPES={'M Dean inspired':1,'Jarre inspired':4,'Moog fundamentals':2,'Draik':6,'Dok Dree':7,'Mozart':8,'Bach':5,'Classical':5};
 export function makeStyleLessons(){const out=[];const add=(id,name,style,level,notes,durations,tip,recipe=1,extra={})=>{const events=phrase(notes,durations);out.push({id:'style-'+id,name,group:'Synth performance',subject:'Technique',style,level,events,tip,explanation:tip,task:'Listen, then play. Sound controls and bends are practice prompts; they are not graded.',formula:'Original VirtuoX study · CC0 · artist-inspired technique, not an artist transcription',bpm:style==='Jarre inspired'?92:70,beatsPerBar:4,bars:Math.ceil(Math.max(...events.map(e=>e.beat+e.duration))/4),soundRecipe:recipe,license:'CC0-1.0',composer:'VirtuoX original',...extra});};
 add('dean-roots','M Dean · deep root/octave bass','M Dean inspired',1,[41,41,53,41,44,44,56,44,46,46,58,46,48,48,60,48],Array(16).fill(.5),'Keep the bass round and short. Play roots and octaves, then adjust cutoff with knob 1. This is an original study.',1);
 add('dean-sync','M Dean · syncopated minor bass','M Dean inspired',2,[41,null,48,51,53,48,44,null,46,48,51,48],[.75,.25,.5,.5,.5,.5,.75,.25,.5,.5,.5,.5],'Count sixteenth subdivisions through the rests. Make the offbeat notes deliberate.',1);
@@ -27,5 +32,17 @@ add('moog-wheel','Moog · vibrato after the attack','Moog fundamentals',1,[60,63
 add('moog-bend','Moog · pitch-bend return to center','Moog fundamentals',2,[60,63,65,67,70,72],[2,2,2,2,2,4],'On the analog lead, bend a sustained note and return the wheel to center. Note targets are graded; bend curves are not.',2);
 add('classical-pad','Classical synth · voice-leading study','Classical',2,[[60,64,67],[60,65,69],[59,62,67],[60,64,67]],[4,4,4,4],'Play a classical I–IV–V–I progression on a warm synth. Preserve the common tones and listen to each inner voice.',5,{subject:'Chords'});
 add('bach-synth','Bach-inspired · broken-chord synth study','Bach',3,[[60,64,67,72],[60,65,69,72],[59,62,67,71],[60,64,67,72]].flatMap(c=>[...c,...c.slice().reverse()]),Array(32).fill(.25),'This is an original broken-chord exercise, not a Bach transcription. Keep the pulse steady and let the harmony change the color.',4,{subject:'Songs'});
+add('draik-keys','Draik · velvet minor-seven keys','Draik',1,[[57,60,64,67],[53,57,60,64],[55,59,62,65],[52,55,59,62]],[4,4,4,4],'Play complete four-note voicings on mellow keys. Release together, leaving a small breath between chords. Original nocturnal R&B exercise.',6,{bpm:66});
+add('draik-space','Draik · space between phrases','Draik',2,[64,67,null,69,67,64,null,62,60,64,null,67],[.5,1,.5,1,1,1,1,1,1,1,.5,2.5],'Count through the silences. Let reverb carry the phrase while your fingers rest; do not fill every gap.',6,{bpm:68});
+add('draik-sub','Draik · understated sub-bass','Draik',2,[33,null,33,40,36,null,36,43,38,null,38,45,35,null,35,42],[1,.5,.5,2,1,.5,.5,2,1,.5,.5,2,1,.5,.5,2],'Play short low roots followed by a fifth. Keep the bass steady and leave space for a vocal or top-line melody.',1,{bpm:72});
+add('draik-color','Draik · ninth-chord color','Draik',3,[[57,60,64,67,71],[53,57,60,64,67],[55,59,62,65,69],[52,55,59,62,66]],[4,4,4,4],'Add the ninth as a soft top note. Hold every chord tone together, then move with minimal finger travel. Use a full-size MIDI keyboard.',6,{bpm:64});
+add('draik-pad','Draik · floating pad response','Draik',4,[[60,64,67],null,[59,62,67],null,[57,60,64],null,[55,59,62],null],[3,1,3,1,3,1,3,1],'Use long pad voicings as answers to an imagined vocal. Keep the rests silent at the keys even while the sound releases.',3,{bpm:70});
+add('draik-progression','Draik · keys and top-line sketch','Draik',5,[[57,60,64,67],71,69,67,[53,57,60,64],67,64,60,[55,59,62,65],69,67,65,[52,55,59,62],66,64,62],[2,.5,.5,1,2,.5,.5,1,2,.5,.5,1,2,.5,.5,1],'Connect each chord to a short top-line answer. Learn the four-bar sketch slowly before raising tempo. This is an original production study.',6,{bpm:74});
+add('dok-bass','Dok Dree · rounded funk roots','Dok Dree',1,[40,40,47,52,43,43,50,55,45,45,52,57,47,47,54,59],[1,.5,.5,2,1,.5,.5,2,1,.5,.5,2,1,.5,.5,2],'Use rounded synth bass. Keep the first note grounded, and make the two shorter pickups light. Original West Coast funk exercise.',1,{bpm:88});
+add('dok-lead','Dok Dree · high glide melody','Dok Dree',2,[76,79,81,83,86,83,81,79,76,74,76],[1,.5,.5,1,1,.5,.5,1,1,1,2],'Use the automatically selected mono glide lead. Slightly overlap successive keys for connected slides; the finger overlap itself is not graded.',7,{bpm:90});
+add('dok-stabs','Dok Dree · clipped chord stabs','Dok Dree',2,[[64,67,71],null,[64,67,71],null,[62,66,69],null,[60,64,67],null],[.5,1,.5,2,.5,1.5,.5,1.5],'Play short chord stabs, then release all keys during the rests. Let the bass and lead have room in the arrangement.',8,{bpm:92});
+add('dok-pickups','Dok Dree · sixteenth-note pickups','Dok Dree',3,[64,null,67,69,71,null,74,76,74,71,69,67,64,null,62,64],[.5,.25,.25,.5,.5,1,.25,.25,.5,.5,.5,.5,1,.5,.5,.5],'Count every sixteenth through the pickups. Keep the glide controlled so it connects notes without covering their attacks.',7,{bpm:88});
+add('dok-changes','Dok Dree · minor funk changes','Dok Dree',4,[[52,59,64,67],[55,62,67,71],[57,64,69,72],[59,66,71,74]],[2,2,2,2],'Practice bass roots and upper triads as complete voicings. Bring the two hands down together; use an external MIDI keyboard.',5,{bpm:94});
+add('dok-outro','Dok Dree · glide-lead turnaround','Dok Dree',5,[83,86,88,86,83,81,79,76,74,76,79,81,79,76,74,76],[.5,.5,1,.5,.5,.5,.5,2,.5,.5,1,.5,.5,.5,.5,2],'Build a high-register phrase and resolve it with a spacious turnaround. Add gentle wheel vibrato only to the long notes; wheel gestures are not graded.',7,{bpm:96});
 return out;}
 export function matchesStyle(lesson,style){return style==='All'||lesson.style===style||style==='Classical'&&['Mozart','Bach','Classical'].includes(lesson.style);}

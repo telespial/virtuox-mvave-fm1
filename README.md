@@ -12,7 +12,7 @@ VirtuoX is an independent, open-source music-learning instrument by Richard Habe
 
 ## What you can use today
 
-- **Piano Coach:** 88 supplied studies plus 10 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
+- **Piano Coach:** 100 supplied studies plus 10 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
 - **Core Matrix:** combine songs, basic music theory, scales, chords, rhythm and technique in GLO → Learning. Concept cards explain the musical task before playing.
 - **Pulse:** optional accuracy-based tempo adjustment between exercises or repeated loops. It does not continuously alter tempo during a phrase.
 - **DX7-Compatible Player:** free play without lessons or scores; six-operator FM synthesis with 32 algorithms, sound macros, six operator-edit pages, envelopes and LFO.
@@ -96,7 +96,7 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. Vi
 
 ## Expressive synth studies and firmware research
 
-Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 16 original artist-inspired studies and ten attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
+Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 28 original artist-inspired studies and ten attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
 
 Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
 
