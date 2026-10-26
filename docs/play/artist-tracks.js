@@ -1,7 +1,9 @@
+import {EXTRA_PLANS} from './expanded-track-plans.js?v=0.9.0';
 // SPDX-License-Identifier: GPL-3.0-only
 // Original musical plans/event data: CC0-1.0. No artist melodies or song transcriptions.
 // Each plan specifies its own harmony, two motifs, rhythm, timbre and performance objective.
-export const ARTIST_STYLES=['M Dean inspired','Jarre inspired','Draik','Dok Dree'];
+export const ARTIST_STYLES=['M Dean inspired','Jarre inspired','Drayk','Dr Dray'];
+export const TRACK_STYLES=[...ARTIST_STYLES,'Moog fundamentals','Bach','Mozart','Classical'];
 const PLANS={
 'M Dean inspired':[
 ['dean-roots','Night Engine',41,'1 6 3 7','1 1 8 5 3 1 5 8/1 5 8 10 8 5 3 1','sync','bass',1,72,'root and octave movement'],
@@ -47,7 +49,7 @@ const PLANS={
 ['jarre-solar-relay','Solar Relay',38,'1 6 5 7','1 5 8 10 8 5 3 7/3 7 10 12 10 8 5 1','lift','arp',4,112,'changing subdivisions'],
 ['jarre-event-horizon','Event Horizon',45,'1 3 4 7','1 3 5 8 10 12 8 5/5 8 10 12 15 12 10 8','sixteenth','arp',4,124,'a developed sequence finale']
 ],
-'Draik':[
+'Drayk':[
 ['draik-keys','Velvet Avenue',45,'1 6 3 7','1 3 5 7/2 4 6 9','slow','chords',6,66,'soft minor-seven voicings'],
 ['draik-space','Rain on the Window',45,'1 4 6 5','8 10 0 12 10 8 0 7/10 12 0 15 12 10 8 0','space','lead',6,68,'phrases separated by silence'],
 ['draik-sub','Low Signal',33,'1 3 4 2','1 0 1 5 3 0 3 8/1 5 0 8 5 3 0 1','sync','bass',1,72,'understated sub-bass movement'],
@@ -69,7 +71,7 @@ const PLANS={
 ['draik-dawn-room','Dawn Room',43,'1 5 4 6','1 4 7 9/3 6 8 10','slow','pad',3,69,'a gradual harmonic opening'],
 ['draik-afterimage','Afterimage Suite',45,'1 6 3 5','8 12 15 12 10 8/10 14 12 11 9 8','space','call',6,86,'a complete keys-and-melody arrangement']
 ],
-'Dok Dree':[
+'Dr Dray':[
 ['dok-bass','Boulevard Bounce',40,'1 3 4 5','1 1 5 8 3 3 5 8/1 5 8 10 8 5 3 1','sync','bass',1,88,'rounded funk bass articulation'],
 ['dok-lead','Chrome Glide',40,'1 6 4 7','8 10 11 12 15 12 11 10/12 15 14 12 10 8 7 8','space','lead',7,90,'connected high-register slides'],
 ['dok-stabs','Palm Shadow',40,'1 4 7 3','1 3 5 7/2 4 6 8','sync','stabs',8,92,'short complete chord stabs'],
@@ -91,8 +93,42 @@ const PLANS={
 ['dok-antenna','Antenna Solo',42,'1 7 4 6','8 10 12 15 12 11 10 8/15 17 15 14 12 10 9 8','sixteenth','lead',7,110,'a developed fast lead solo'],
 ['dok-freeway-dawn','Freeway at Dawn',40,'1 3 6 5','8 12 15 12 10 8/12 15 14 11 9 8','space','call',5,104,'a full funk keyboard finale']
 ]};
+for(const [style,plans] of Object.entries(EXTRA_PLANS))PLANS[style]=[...(PLANS[style]||[]),...plans];
 const RHYTHMS={steady:Array(8).fill(.5),sync:[.75,.25,.5,.5,.75,.25,.5,.5],space:[1,.5,.5,1,.5,.5],lift:[.25,.25,.5,.5,.5,.25,.25,.5,1],slow:[1,1,2],sixteenth:Array(16).fill(.25),swing:Array.from({length:8},(_,i)=>i%2?1/3:2/3)};
-const SCALES={minor:[0,2,3,5,7,8,10],dorian:[0,2,3,5,7,9,10]};
+const SCALES={minor:[0,2,3,5,7,8,10],dorian:[0,2,3,5,7,9,10],major:[0,2,4,5,7,9,11],harmonic:[0,2,3,5,7,8,11]};
 function pitch(degree,tonic,scale){const d=degree-1,oct=Math.floor(d/7);return tonic+12*oct+scale[((d%7)+7)%7];}
-export function makeArtistTracks(){const result=[];for(const style of ARTIST_STYLES)PLANS[style].forEach(([id,title,tonic,harmony,motifs,rhythm,texture,soundRecipe,bpm,focus],index)=>{const roots=harmony.split(' ').map(Number),themes=motifs.split('/').map(m=>m.split(' ').map(Number)),bars=index<8?8:index<16?12:16,events=[],scale=SCALES[style==='Dok Dree'?'dorian':'minor'];const add=(beat,notes,duration,hand='R',velocity=86)=>{if(notes.length)events.push({beat,notes,duration:Math.min(duration,bars*4-beat),hand,velocity});};for(let bar=0;bar<bars;bar++){const section=Math.floor(bar/4),root=roots[(bar+(section===1?1:section===2?3:0))%4],theme=themes[section%2],base=bar*4,accent=section===1?7:section===3?-5:0;const chord=([0,2,4,6,...(index%3===0?[8]:[])]).map(d=>pitch(root+d,tonic+12,scale));if(texture==='pad'||texture==='chords'){add(base,chord,texture==='pad'?3.95:3.4,'R',76+accent);continue;}if(texture==='stabs'){const positions=bar%2?[.5,2.5,3.5]:[0,1.5,3];positions.forEach((b,i)=>add(base+b,chord.slice(0,4),.35+(i%2)*.15,'R',84+accent-i*3));continue;}if(texture==='call'){add(base,[pitch(root,tonic,scale),pitch(root+4,tonic,scale)],1.8,'L',72+accent);for(let j=0;j<4;j++){const d=theme[(j+bar)%theme.length];if(d)add(base+2+j*.5,[pitch(d,tonic+24,scale)],.46,'R',86+accent-j*2);}continue;}let at=0;const durations=RHYTHMS[rhythm];for(let j=0;j<durations.length;j++){const length=durations[j],d=theme[(j+(bar%4===3?2:0))%theme.length];if(d){const register=texture==='bass'?0:texture==='pulse'||texture==='arp'?12:24;const degree=texture==='bass'||texture==='pulse'||texture==='arp'?root+d-1:d;const n=pitch(degree,tonic+register,scale);add(base+at,[n],length*(texture==='bass'?.72:texture==='lead'?.98:.84),texture==='bass'?'L':'R',Math.max(55,Math.min(110,86+accent+(j===0?7:0)-(j%3)*3)));}at+=length;}}
- events.sort((a,b)=>a.beat-b.beat);result.push({id:'style-'+id,name:(style==='M Dean inspired'?'M Dean':style==='Jarre inspired'?'Jarre':style)+' · '+title,style,group:'Artist tracks',subject:'Songs',level:Math.floor(index/4)+1,events,bars,bpm,beatsPerBar:4,soundRecipe,trackNumber:index+1,texture,sections:Array.from({length:bars/4},(_,i)=>({name:['Theme A','Theme B','Bridge','Coda'][i],firstBar:i*4+1,lastBar:i*4+4})),tip:'Original '+bars+'-bar track: '+focus+'. Learn one four-bar section at a time, then connect the arrangement.',explanation:'Practice '+focus+' through changing harmony and an answering phrase. This is original music inspired by broad production techniques, not an artist song transcription.',task:'Use the bar-loop controls for each section. Sound-control gestures are practice prompts, not graded.',formula:'Original VirtuoX track · CC0 · '+(bars===8?'A / B':bars===12?'A / B / bridge':'A / B / bridge / coda'),license:'CC0-1.0',composer:'VirtuoX original'});});return result;}
+export function makeArtistTracks(){
+ const result=[];
+ for(const style of TRACK_STYLES)PLANS[style].forEach(([id,title,tonic,harmony,motifs,rhythm,texture,soundRecipe,bpm,focus,options={}],index)=>{
+  const roots=harmony.split(' ').map(Number),themes=motifs.split('/').map(m=>m.split(' ').map(Number)),bars=index<8?8:index<16?12:16,meter=options.meter||4,events=[];
+  const mode=options.mode||(style==='Dr Dray'?'dorian':['Bach','Mozart','Classical'].includes(style)?'major':'minor'),scale=SCALES[mode];
+  const add=(beat,notes,duration,hand='R',velocity=86)=>{if(notes.length&&duration>0&&beat<bars*meter)events.push({beat,notes,duration:Math.min(duration,bars*meter-beat),hand,velocity});};
+  for(let bar=0;bar<bars;bar++){
+   const section=Math.floor(bar/4),root=roots[(bar+(section===1?1:section===2?3:0))%4],theme=themes[section%2],base=bar*meter,accent=section===1?7:section===3?-5:0;
+   const chord=([0,2,4,6,...(index%3===0?[8]:[])]).map(d=>pitch(root+d,tonic+12,scale));
+   if(texture==='pad'||texture==='chords'){add(base,chord,texture==='pad'?meter-.05:meter-.6,'R',76+accent);continue;}
+   if(texture==='stabs'){const positions=bar%2?[.5,2.5,3.5]:[0,1.5,3];positions.filter(b=>b<meter).forEach((b,i)=>add(base+b,chord.slice(0,4),Math.min(.35+(i%2)*.15,meter-b),'R',84+accent-i*3));continue;}
+   if(texture==='call'){add(base,[pitch(root,tonic,scale),pitch(root+4,tonic,scale)],1.8,'L',72+accent);for(let j=0;j<4;j++){const d=theme[(j+bar)%theme.length];if(d)add(base+2+j*.5,[pitch(d,tonic+24,scale)],.46,'R',86+accent-j*2);}continue;}
+   if(texture==='alberti')for(let j=0;j<8;j++)add(base+j*.5,[pitch(root+[0,4,2,4][j%4],tonic,scale)],.43,'L',64+accent);
+   if(texture==='counterpoint')for(let j=0;j<meter;j++)add(base+j,[pitch(root+[0,4,2,5][(j+bar)%4],tonic,scale)],.86,'L',68+accent);
+   if(texture==='pedal')add(base,[tonic],meter-.08,'L',64+accent);
+   if(texture==='waltz'){add(base,[pitch(root,tonic,scale)],.85,'L',72+accent);for(let j=1;j<meter;j++)add(base+j,[pitch(root+2,tonic,scale),pitch(root+4,tonic,scale)],.7,'L',62+accent);}
+   let at=0;const durations=RHYTHMS[rhythm];
+   for(let j=0;j<durations.length&&at<meter;j++){
+    const length=Math.min(durations[j],meter-at),d=theme[(j+(bar%4===3?2:0))%theme.length];
+    if(d){const register=texture==='bass'?0:['pulse','arp','melody','alberti','counterpoint','pedal','waltz'].includes(texture)?12:24;
+     const degree=['bass','pulse','arp','pedal'].includes(texture)?root+d-1:d;
+     add(base+at,[pitch(degree,tonic+register,scale)],length*(texture==='bass'?.72:texture==='lead'?.98:.84),texture==='bass'?'L':'R',Math.max(55,Math.min(110,86+accent+(j===0?7:0)-(j%3)*3)));
+    }at+=length;
+   }
+  }
+  events.sort((a,b)=>a.beat-b.beat);
+  const label=style==='M Dean inspired'?'M Dean':style==='Jarre inspired'?'Jarre':style==='Moog fundamentals'?'Moog':style==='Bach'?'Baroque study':style==='Mozart'?'Chamber study':style;
+  result.push({id:'style-'+id,name:label+' · '+title,style,group:'Style tracks',subject:'Songs',level:Math.floor(index/5)+1,events,bars,bpm,beatsPerBar:meter,soundRecipe,trackNumber:index+1,trackCount:PLANS[style].length,texture,mode,
+   sections:Array.from({length:bars/4},(_,i)=>({name:['Theme A','Theme B','Bridge','Coda'][i],firstBar:i*4+1,lastBar:i*4+4})),
+   tip:'Original '+bars+'-bar track: '+focus+'. Learn one four-bar section at a time, then connect the arrangement.',
+   explanation:'Practice '+focus+' through changing harmony and an answering phrase. This is an original VirtuoX composition inspired by broad musical techniques, not a transcription of an artist or composer work.',
+   task:'Use the bar-loop controls for each section. Sound-control gestures are practice prompts, not graded.',
+   formula:'Original VirtuoX track · CC0 · '+meter+'/4 · '+(bars===8?'A / B':bars===12?'A / B / bridge':'A / B / bridge / coda'),license:'CC0-1.0',composer:'VirtuoX original'});
+ });return result;
+}

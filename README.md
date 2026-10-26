@@ -12,7 +12,7 @@ VirtuoX is an independent, open-source music-learning instrument by Richard Habe
 
 ## What you can use today
 
-- **Piano Coach:** 158 supplied studies plus 12 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
+- **Piano Coach:** 272 supplied studies plus 12 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
 - **Core Matrix:** combine songs, basic music theory, scales, chords, rhythm and technique in GLO → Learning. Concept cards explain the musical task before playing.
 - **Pulse:** optional accuracy-based tempo adjustment between exercises or repeated loops. It does not continuously alter tempo during a phrase.
 - **DX7-Compatible Player:** free play without lessons or scores; six-operator FM synthesis with 32 algorithms, sound macros, six operator-edit pages, envelopes and LFO.
@@ -96,7 +96,7 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. Vi
 
 ## Expressive synth studies and firmware research
 
-Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 86 original artist-inspired studies and twelve attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open and other open-source firmware.
+Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 200 original style tracks and twelve attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open and other open-source firmware.
 
 Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
 
@@ -110,7 +110,7 @@ In Piano Coach, press GLO and turn SELECT to page 8, Learning style. The four kn
 
 ## Artist track collections
 
-M Dean inspired, Jarre inspired, Draik and Dok Dree each contain 20 original 8–16-bar tracks with contrasting four-bar sections, explicit harmonic plans, answering motifs, five progression levels, matching sound recipes, MIDI export and full-track demos. These are original learning compositions drawing on broad musical techniques, not transcriptions or reconstructions of artist songs. Bach has four complete attributed Mutopia MIDI editions (BWV 772, 773, 846 and 933). REC on GLO Learning style demos the selected track; browser cards provide Demo track / Demo complete piece. The top style-demo button remains a short preview.
+M Dean inspired, Jarre inspired, Drayk and Dr Dray each contain 25 original 8–16-bar tracks with contrasting four-bar sections, explicit harmonic plans, answering motifs, five progression levels, matching sound recipes, MIDI export and full-track demos. These are original learning compositions drawing on broad musical techniques, not transcriptions or reconstructions of artist songs. Bach has four complete attributed Mutopia MIDI editions (BWV 772, 773, 846 and 933). REC on GLO Learning style demos the selected track; browser cards provide Demo track / Demo complete piece. The top style-demo button remains a short preview.
 
 ## Keyboard range
 
@@ -123,3 +123,5 @@ Choose Installed sound library in Sounds or Styles, or GLO → Instrument mode �
 ## Factory-first installation page
 
 The installer has two explicit stages: download and restore original FM-1 V15 using the official updater, then confirm factory installation before opening the VirtuoX stage. No native VirtuoX firmware is released yet; its flash action remains disabled. The original emulator, hidden tab and iframe bridge are removed; required panel source attribution remains.
+
+Every named learning style now supplies 25 original 8–16-bar arrangements (200 total), with five progression levels and contrasting sections. Moog has 25 tracks; Bach-style, Mozart-style and Classical each have 25 original educational compositions, clearly distinguished from the 12 complete historical MIDI editions. Dr Dray and Drayk are the current labels; prior links and saved style names are migrated.
