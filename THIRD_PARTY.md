@@ -4,7 +4,7 @@
 
 The browser coach, UI adaptation and supporting original project source are distributed under GNU GPL version 3 only; see LICENSE. The physical panel drawing/input layer derives from JIANT / Felucca / X0X. Retain its header notices. JIANT source basis: https://github.com/juanjiant-bit/JIANT/tree/cfff2d40de49cd0d6d8cd30aa60393c225a9c303 . JIANT by Juan Ignacio Antonucci; Felucca by Leo Kuroshita / Hügelton Instruments; X0X browser emulator by charlesvestal. This repository does not bundle the original compiled JIANT firmware emulator or its firmware image.
 
-## DX7 synthesis engine
+## DX7-compatible synthesis engine
 
 `docs/play/engine/`: tetorica-msfa-dx7-wasm 0.3.1, Apache-2.0, derived from Google MSFA / the Dexed lineage. License and notices are included in `docs/play/engine/LICENSE` and `docs/play/engine/THIRD_PARTY_NOTICES.md`. Upstream source: https://github.com/kyorohiro/tetorica-msfa-dx7-wasm . This is DX7-compatible synthesis, not a bit-identical emulation of original analog output stages.
 
@@ -27,3 +27,5 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog identify compatible products/formats and rema
 ## Musical study data and MIDI editions
 
 The 16 original artist-inspired note-event studies in `style-library.js` are dedicated under CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). The module code remains GPL-3.0-only. These are original exercises, not Mike Dean or Jean-Michel Jarre transcriptions or endorsed artist presets. The ten unchanged Mutopia MIDI editions have per-file Public Domain or CC-BY-SA-3.0 status; see [attribution and provenance](docs/play/midi/README.md) and `library.json`. Those edition licenses are separate from the application license.
+
+Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.

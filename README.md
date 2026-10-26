@@ -1,6 +1,6 @@
 # VirtuoX — The Interactive Piano Engine
 
-**Piano learning and DX7 FM synthesis for the M-VAVE FM-1.**
+**Piano learning and DX7-compatible FM synthesis for the M-VAVE FM-1.**
 
 [Project website](https://telespial.github.io/virtuox-mvave-fm1/) · [Play the browser demo](https://telespial.github.io/virtuox-mvave-fm1/play/) · [Full manual](https://telespial.github.io/virtuox-mvave-fm1/manual.html) · [Firmware & recovery center](https://telespial.github.io/virtuox-mvave-fm1/install.html)
 
@@ -15,7 +15,7 @@ VirtuoX is an independent, open-source music-learning instrument by Richard Habe
 - **Piano Coach:** 88 supplied studies plus 10 licensed MIDI editions, colorful falling notes or grand staff, child/adult profiles, six difficulty levels, adjustable timing, hand selection, loops, demonstrations and automatic course continuation.
 - **Core Matrix:** combine songs, basic music theory, scales, chords, rhythm and technique in GLO → Learning. Concept cards explain the musical task before playing.
 - **Pulse:** optional accuracy-based tempo adjustment between exercises or repeated loops. It does not continuously alter tempo during a phrase.
-- **DX7 Player:** free play without lessons or scores; six-operator FM synthesis with 32 algorithms, sound macros, six operator-edit pages, envelopes and LFO.
+- **DX7-Compatible Player:** free play without lessons or scores; six-operator FM synthesis with 32 algorithms, sound macros, six operator-edit pages, envelopes and LFO.
 - **Factory sounds:** 128 M-VAVE FM-1 V15 factory voices, in four banks of 32, with documented browser compatibility adjustments. Import your own single-voice or 32-voice DX7 `.syx` files locally.
 - **Analog-inspired sounds:** six subtractive presets with oscillator, filter, resonance, envelope, sub oscillator, drive and modulation controls. Not exact Moog models and not DX7-exportable voices.
 - **Effects:** chorus, delay, reverb, filter and drive through Web Audio.
@@ -97,3 +97,5 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. Vi
 ## Expressive synth studies and firmware research
 
 Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 16 original artist-inspired studies and ten attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
+
+Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
