@@ -128,5 +128,31 @@
     "attribution": "Alejandro Sierra algsierra (at) gmail.com",
     "sha256": "37804d835dbf51c2db6196be0bc9f6612283c0b179bab1e102a8bd43baee1fec",
     "bytes": 7655
+  },
+  {
+    "id": "mutopia-58",
+    "name": "Invention No. 2 in C minor, BWV 773",
+    "composer": "Bach",
+    "style": "Bach",
+    "file": "midi/mutopia-58.mid",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=58",
+    "download": "https://www.mutopiaproject.org/ftp/BachJS/BWV773/bach-invention-02/bach-invention-02.mid",
+    "license": "Public Domain",
+    "attribution": "Allen Garvin",
+    "sha256": "b61e1e4d4a42ca70efd0eb8a65de3ed0ca0ee9c31556354608f6caa360e78e98",
+    "bytes": 5366
+  },
+  {
+    "id": "mutopia-5",
+    "name": "Prelude in C major, BWV 846",
+    "composer": "Bach",
+    "style": "Bach",
+    "file": "midi/mutopia-5.mid",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=5",
+    "download": "https://www.mutopiaproject.org/ftp/BachJS/BWV846/wtk1-prelude1/wtk1-prelude1.mid",
+    "license": "Public Domain",
+    "attribution": "Tobias Erbsland",
+    "sha256": "874e07d0479542971bfceaf420d6117da8d602d89d26eea4610e7dd1ef58bf26",
+    "bytes": 4676
   }
 ]

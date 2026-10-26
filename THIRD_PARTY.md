@@ -26,6 +26,6 @@ M-VAVE, FM-1, Yamaha, DX7 and Moog identify compatible products/formats and rema
 
 ## Musical study data and MIDI editions
 
-The 28 original artist-inspired note-event studies in `style-library.js` are dedicated under CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). The module code remains GPL-3.0-only. These are original exercises, not Mike Dean or Jean-Michel Jarre transcriptions or endorsed artist presets. The ten unchanged Mutopia MIDI editions have per-file Public Domain or CC-BY-SA-3.0 status; see [attribution and provenance](docs/play/midi/README.md) and `library.json`. Those edition licenses are separate from the application license.
+The 86 original artist-inspired note-event studies in `style-library.js` and `artist-tracks.js` are dedicated under CC0-1.0 (https://creativecommons.org/publicdomain/zero/1.0/). The module code remains GPL-3.0-only. These are original exercises, not Mike Dean or Jean-Michel Jarre transcriptions or endorsed artist presets. The twelve unchanged Mutopia MIDI editions have per-file Public Domain or CC-BY-SA-3.0 status; see [attribution and provenance](docs/play/midi/README.md) and `library.json`. Those edition licenses are separate from the application license.
 
 Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
