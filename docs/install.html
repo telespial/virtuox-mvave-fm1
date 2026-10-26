@@ -1,1 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VirtuoX Firmware & Recovery Center | M-VAVE FM-1</title><meta name="description" content="VirtuoX FM-1 firmware development status, original M-VAVE firmware recovery guidance, official download links and a local firmware SHA-256 checker."><link rel="canonical" href="https://telespial.github.io/virtuox-mvave-fm1/install.html"><link rel="stylesheet" href="style.css"><link rel="icon" href="assets/icon.svg"></head><body><header class="topbar"><nav class="wrap nav"><a class="wordmark" href="./">Virtuo<b>X</b><small>THE INTERACTIVE PIANO ENGINE</small></a><div class="navlinks"><a href="manual.html">Manual</a><a class="btn primary" href="play/">Browser demo ↗</a></div></nav></header><main class="doc"><span class="eyebrow">FIRMWARE / RECOVERY / LOCAL FILE CHECK</span><h1>One careful step<br>before you flash.</h1><p>The browser demo is ready to explore. Native VirtuoX learning firmware is still in development. This page helps you find official firmware and identify a local file; it does not flash your instrument.</p><div class="notice"><strong>VirtuoX firmware: not released.</strong>Do not rename the browser source, a ZIP archive, or a JIANT firmware file to VirtuoX and install it. There is no tested VirtuoX <code>.fwsc</code> package in this repository.</div><h2>Start with the firmware already on your FM-1.</h2><ol><li><strong>Back up what matters.</strong>Export patches, projects and samples using tools compatible with the firmware currently installed. A browser practice-history file is not a device backup.</li><li><strong>Read the target firmware’s migration instructions.</strong>JIANT instructs users coming from another custom firmware to return to official V15 first. That instruction belongs to JIANT; it is not a tested VirtuoX installation path.</li><li><strong>Use the official recovery source.</strong>M-VAVE’s workbench provides a return-to-original-V15 control. Recovery overwrites the four sound banks and restores the 128 factory voices; back up first.</li><li><strong>Use a data cable and stable power.</strong>Use desktop Chrome or Edge for the relevant Web MIDI/WebUSB tools. Close other applications using the MIDI port. Follow the updater’s directions and keep the connection stable.</li></ol><div class="actions"><a class="btn primary" href="https://open.m-vave.com/fm1-workbench" target="_blank" rel="noopener">M-VAVE official workbench ↗</a><a class="btn" href="https://www.m-vave.com/download" target="_blank" rel="noopener">M-VAVE downloads ↗</a></div><p class="fine">External tools have their own firmware compatibility requirements and write to your instrument only after their own connection and confirmation process.</p><h2>Choose a firmware file for a local check.</h2><p>Select a file already on your computer. VirtuoX calculates its SHA-256 locally. Nothing is uploaded, and selecting a file does not connect to or write to your FM-1.</p><div class="file-check"><label for="firmware-file">Select a .fwsc firmware package</label><input type="file" id="firmware-file" accept=".fwsc"><output id="firmware-result" aria-live="polite">No file selected. This checker does not authenticate arbitrary firmware or establish device compatibility.</output></div><p>The exact M-VAVE V15 recovery image referenced by the pinned official source has SHA-256:</p><p><code style="overflow-wrap:anywhere">db1642b2b6fa5c2cccb11ffd13878068bb28601678d3644049f99dc40e7edb8a</code></p><p>A match identifies that specific file. A mismatch can mean a different version or package; it is not permission to flash. The official workbench and manufacturer instructions remain the source for installation and recovery.</p><div class="notice"><strong>You will need to select the file again in the upstream updater.</strong>Browsers do not transfer your local file selection between independent websites. This page’s file checker is separate from the flashing tool.</div><h2>Using JIANT?</h2><p>JIANT’s installer includes its own firmware checks, backup flow and official recovery option. Use its instructions for JIANT installations. VirtuoX’s current browser prototype does not replace JIANT or implement its complete firmware features.</p><a class="btn" href="https://juanjiant-bit.github.io/JIANT/webapp/installer/" target="_blank" rel="noopener">Open the JIANT installer ↗</a><h2>What must happen before “Install VirtuoX” exists?</h2><ul><li>A native C port of the lesson engine and color LCD interface.</li><li>Measured CPU, memory, polyphony and audio deadlines on a physical FM-1.</li><li>Tested settings and patch storage, migration, backup and recovery.</li><li>A versioned build with matching source, checksums, licenses and installation instructions.</li><li>Hardware testing of the update path, including unsuccessful and interrupted updates.</li></ul><div class="actions"><a class="btn" href="https://github.com/telespial/virtuox-mvave-fm1">Follow firmware development ↗</a><a class="btn primary" href="play/">Play the browser version ↗</a></div><h2>Sources</h2><p><a href="https://open.m-vave.com/fm1-workbench">M-VAVE workbench</a> · <a href="https://github.com/m-vave/fm1_open">Official FM1 APP and SDK</a> · <a href="https://juanjiant-bit.github.io/JIANT/">JIANT installation guidance</a></p><p class="fine">Independent project. M-VAVE and FM-1 are trademarks of their respective owners. No device is flashed by this page.</p></main><script type="module" src="install.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Install VirtuoX | Factory FM-1 First</title>
+<meta name="description" content="VirtuoX installation order: download and restore original M-VAVE FM-1 V15 firmware first, then confirm factory restoration before the VirtuoX firmware stage.">
+<link rel="canonical" href="https://telespial.github.io/virtuox-mvave-fm1/install.html">
+<link rel="stylesheet" href="style.css"><link rel="icon" href="assets/icon.svg">
+<style>
+.install-card{border:1px solid #35443d;border-radius:18px;padding:30px;margin:24px 0;background:#111c19}.step-number{font:12px monospace;letter-spacing:.13em;color:var(--lime,#b7ef76)}.install-card h2{margin:12px 0}.install-card p{color:#b5c5bb}.install-card .actions{flex-wrap:wrap}.install-card button,.confirm-dialog button{font:inherit;cursor:pointer}.install-card button:disabled{opacity:.5;cursor:not-allowed}.status-line{border-left:3px solid #a9e678;padding:14px;background:#1b2b23;margin-top:20px}.file-check{margin:18px 0}output{display:block;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:14px;font:12px/1.7 monospace}.confirm-dialog{max-width:540px;width:calc(100% - 40px);padding:30px;background:#13201b;color:#e5eee6;border:1px solid #57745d;border-radius:18px}.confirm-dialog::backdrop{background:#030b0bd6}.confirm-dialog h2{font-size:28px;margin-top:0}.confirm-dialog p{line-height:1.7;color:#b5c5bb}.confirm-dialog .actions{display:flex;gap:12px;flex-wrap:wrap}.install-card code{overflow-wrap:anywhere}[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="topbar"><nav class="wrap nav"><a class="wordmark" href="./">Virtuo<b>X</b><small>THE INTERACTIVE PIANO ENGINE</small></a><div class="navlinks"><a href="manual.html">Manual</a><a class="btn primary" href="play/">Browser demo ↗</a></div></nav></header>
+<main class="doc">
+<span class="eyebrow">FM-1 INSTALLATION / TWO STEPS</span>
+<h1>Factory first.<br>VirtuoX second.</h1>
+<p>Restore the original M-VAVE FM-1 firmware before the VirtuoX firmware stage. JIANT is not an installation requirement.</p>
+<div class="notice"><strong>Native VirtuoX firmware has not been released.</strong>The browser instrument works today. There is no flashable VirtuoX build in this repository, so step 2 cannot currently install software onto your FM-1. Restoring factory firmware is not required to use the browser demo.</div>
+
+<section class="install-card" id="factory-step" aria-labelledby="factory-title">
+<span class="step-number">01 / ORIGINAL M-VAVE FM-1</span>
+<h2 id="factory-title">Download and install factory firmware.</h2>
+<p>Back up your patches, projects and samples first. Use the original <strong>FM-1 V15</strong> recovery image below, then follow the official updater’s restore-to-original instructions. Keep the instrument powered and connected during the update.</p>
+<div class="actions">
+<a id="factory-download" class="btn primary" href="https://raw.githubusercontent.com/m-vave/fm1_open/4c7496daac04a95ff10d1afdcc8f9ead2dbabc41/sdk/firmware/FM-1_015.fwsc" download="FM-1_015.fwsc">Download original FM-1 V15 ↧</a>
+<a id="factory-flash" class="btn" href="https://open.m-vave.com/fm1-workbench" target="_blank" rel="noopener">Flash factory firmware · official updater ↗</a>
+</div>
+<p class="fine">The download is hosted in M-VAVE’s official source repository. Opening the updater does not confirm that installation succeeded. Use its factory recovery action; do not select FM1 Open as a substitute for original V15.</p>
+<details><summary>Check your downloaded factory file</summary>
+<p>Expected size: 699,956 bytes. SHA-256:</p><p><code>db1642b2b6fa5c2cccb11ffd13878068bb28601678d3644049f99dc40e7edb8a</code></p>
+<div class="file-check"><label for="firmware-file">Select the original .fwsc file for a local checksum check</label><input type="file" id="firmware-file" accept=".fwsc"><output id="firmware-result" aria-live="polite">No file selected. Checking a file does not flash the instrument or confirm installation.</output></div>
+</details>
+<p><a href="https://www.m-vave.com/download" target="_blank" rel="noopener">Manufacturer downloads and documentation ↗</a></p>
+</section>
+
+<section class="install-card" id="virtuox-step" aria-labelledby="virtuox-title">
+<span class="step-number">02 / VIRTUOX</span>
+<h2 id="virtuox-title">Continue to VirtuoX installation.</h2>
+<p>Before this stage opens, confirm that you have already installed the original factory FM-1 firmware. This is your confirmation; the page does not read the installed firmware from the device.</p>
+<button id="open-install" class="btn primary" type="button">Continue to install VirtuoX</button>
+<p id="install-status" class="fine" role="status">Factory confirmation required. Native VirtuoX firmware is not yet available.</p>
+<div id="virtuox-install-area" hidden>
+<div class="status-line"><strong>Factory installation confirmed.</strong><p>A native VirtuoX firmware release is still required. No file has been selected and nothing has been flashed.</p></div>
+<button id="install-virtuox" class="btn" type="button" disabled>Install VirtuoX firmware · not released</button>
+<p>Use the working browser version while the native firmware port is developed.</p>
+<a class="btn primary" href="play/">Open VirtuoX browser version ↗</a>
+<a class="btn" href="https://github.com/telespial/virtuox-mvave-fm1">Source and release status ↗</a>
+</div>
+</section>
+<p class="fine">Independent project. M-VAVE and FM-1 are trademarks of their respective owners. This page provides downloads, a local checksum check and installation sequencing. Factory flashing takes place in the official updater.</p>
+</main>
+<dialog id="factory-confirm" class="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-description">
+<h2 id="confirm-title">Have you installed the original factory FM-1 firmware first?</h2>
+<p id="confirm-description">Confirm only after the original M-VAVE FM-1 firmware has finished installing successfully. Downloading or checking the file is not the same as installing it. Native VirtuoX firmware is not yet released; continuing will show its current installation status.</p>
+<div class="actions"><button id="factory-no" class="btn" type="button">Not yet · return to step 1</button><button id="factory-yes" class="btn primary" type="button">Yes · factory FM-1 installed</button></div>
+</dialog>
+<script type="module" src="install.js?v=0.8.0"></script>
+</body></html>

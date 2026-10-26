@@ -119,3 +119,7 @@ FM-1 range (default): all lesson targets and style demos stay on the fixed 27-ke
 ## Continuous demos and installed sound libraries
 
 Choose Installed sound library in Sounds or Styles, or GLO → Instrument mode → knob 3. Automatic lesson sounds select real patches from that installed set, varying by track and musical role. Explicit analog recipes and Keep current sound remain available. Style demos continue through the selected style and wrap until stopped; disable Continue demos for a single track. Listen also continues through the current learning path. Drag a knob around its rim clockwise to increase or counterclockwise to decrease; dragging from its center supports up/right to increase and down/left to decrease.
+
+## Factory-first installation page
+
+The installer has two explicit stages: download and restore original FM-1 V15 using the official updater, then confirm factory installation before opening the VirtuoX stage. No native VirtuoX firmware is released yet; its flash action remains disabled. JIANT is not an installation dependency. The original emulator, hidden tab and iframe bridge are removed; required panel source attribution remains.
