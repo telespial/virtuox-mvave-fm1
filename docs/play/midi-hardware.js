@@ -1,13 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0-only
-import {packVoice,createVoiceSysex,parseSysex} from './engine/src/sysex.js';
-export function flFrame(cmd,args=[]){if(!Number.isInteger(cmd)||cmd<0||cmd>127||args.some(n=>!Number.isInteger(n)||n<0||n>127))throw Error('Invalid SysEx frame');return Uint8Array.from([240,125,70,76,cmd,...args,247])}
-export function hardwareVoiceMessage(profile,data,{channel=1,track=1}={}){if(profile==='stock-v16'){if(!Number.isInteger(channel)||channel<1||channel>16)throw Error('MIDI channel must be 1–16');return createVoiceSysex(data,{channel:channel-1})}if(profile==='jiant'){if(!Number.isInteger(track)||track<1||track>6)throw Error('Track must be 1–6');return flFrame(69,[0,track-1,...packVoice(data)])}throw Error('Select the firmware running on your FM-1. Unknown firmware is not sent patches.')}
+import {createVoiceSysex,parseSysex} from './engine/src/sysex.js';
+export function hardwareVoiceMessage(profile,data,{channel=1}={}){
+ if(profile!=='stock-v16')throw Error('Select M-VAVE stock V16. Unsupported firmware is not sent patches.');
+ if(!Number.isInteger(channel)||channel<1||channel>16)throw Error('MIDI channel must be 1–16');
+ return createVoiceSysex(data,{channel:channel-1});
+}
 export class HardwareLink{
- constructor(log=()=>{}){this.log=log;this.output=null;this.inputId='';this.pending=new Map();this.detected=false;}
- setPorts(output,inputId){for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(Error('MIDI ports changed; transfer stopped'))}this.pending.clear();this.output=output;this.inputId=inputId;this.detected=false;}
- feed(inputId,data){if(inputId!==this.inputId||data[0]!==240||data[1]!==125||data[2]!==70||data[3]!==76)return;const req=this.pending.get(data[4]);if(req&&data.at(-1)===247){clearTimeout(req.timer);this.pending.delete(data[4]);req.resolve(data.slice(5,-1))}}
- request(cmd,args=[]){if(!this.output)throw Error('Select the FM-1 MIDI output');if(!this.inputId)throw Error('Select the FM-1 response input');if(this.pending.size)throw Error('Wait for the current hardware request');return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.pending.delete(cmd);reject(Error('No reply from selected FM-1 input. Check firmware and USB ports.'))},2200);this.pending.set(cmd,{resolve,reject,timer});try{this.output.send(flFrame(cmd,args))}catch(e){clearTimeout(timer);this.pending.delete(cmd);reject(e)}})}
- async detect(){const info=await this.request(1);let fm6=false;for(let i=0;i<info.length-3;i++)if(info[i]===70&&info[i+1]===1&&info[i+2]>0)fm6=true;if(!fm6)throw Error('Device replied, but FM6 patch support was not advertised.');this.detected=true;this.log('JIANT/Felucca response received; FM6 patch support detected.');return info;}
- async send(profile,data,options){if(!this.output)throw Error('Select the actual FM-1 output port');parseSysex(createVoiceSysex(data));if(profile==='stock-v16'){this.output.send(hardwareVoiceMessage(profile,data,options));this.log('Patch sent to the stock V16 edit buffer. Delivery is unacknowledged. Open OSC → SAVE → Preset on the FM-1 to store it. Browser FX are not part of this DX7 file.');return {acknowledged:false}}
- if(profile==='jiant'){hardwareVoiceMessage(profile,data,options);if(!this.detected)await this.detect();const reply=await this.request(69,[0,options.track-1,...packVoice(data)]);if(reply.length<3||reply[0]!==0||reply[1]!==options.track-1||reply[2]!==0)throw Error('FM-1 refused patch (code '+reply[2]+').');this.log('FM-1 acknowledged the patch on track '+options.track+'. The target track must use FM6. Save the project or preset on the device to keep it.');return {acknowledged:true}}throw Error('Select the firmware profile first.');}
+ constructor(log=()=>{}){this.log=log;this.output=null;this.inputId='';}
+ setPorts(output,inputId){this.output=output;this.inputId=inputId;}
+ async send(profile,data,options={}){
+  if(!this.output)throw Error('Select the actual FM-1 output port');
+  const message=hardwareVoiceMessage(profile,data,options);parseSysex(message);this.output.send(message);
+  this.log('Patch sent to the stock V16 edit buffer. Delivery is unacknowledged. Open OSC → SAVE → Preset on the FM-1 to store it. Browser FX are not part of this DX7 file.');
+  return {acknowledged:false};
+ }
 }

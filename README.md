@@ -74,9 +74,9 @@ GitHub Pages serves `main` → `/docs`. `.nojekyll` keeps the buildless layout i
 
 ## Firmware roadmap and hardware limits
 
-The browser application is not a native FM-1 binary and is not the complete JIANT firmware. A native port needs C integration, physical LCD/input/LED behavior, device persistence, CPU/memory/audio measurements, update/recovery testing and matching source/build instructions. Those are development tasks, not completed features.
+The browser application is not a native FM-1 binary and is not native FM-1 firmware. A native port needs C integration, physical LCD/input/LED behavior, device persistence, CPU/memory/audio measurements, update/recovery testing and matching source/build instructions. Those are development tasks, not completed features.
 
-The browser has stock-V16 and JIANT/Felucca patch-transfer protocol paths. These are for **DX7 voice parameters**, not for installing VirtuoX. Physical device validation is outstanding. Browser effects and analog sounds are not transferred as DX7 patches.
+The browser has a stock-V16 patch-transfer protocol path. These are for **DX7 voice parameters**, not for installing VirtuoX. Physical device validation is outstanding. Browser effects and analog sounds are not transferred as DX7 patches.
 
 ## Search and discovery
 
@@ -92,11 +92,11 @@ Coach/UI adaptations are GPL-3.0-only. Panel code is adapted from JIANT by Juan 
 
 Synthesis: `tetorica-msfa-dx7-wasm` 0.3.1, derived from Google MSFA and the Dexed lineage, Apache-2.0. DotGothic16: SIL OFL 1.1. M-VAVE factory data: separate Apache-2.0 attribution. See [LICENSE](LICENSE), [THIRD_PARTY.md](THIRD_PARTY.md) and component notices.
 
-M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. VirtuoX is independent and is not affiliated with or endorsed by those companies or JIANT. The VirtuoX name is a project label, not a claim of exclusive trademark rights; similarly named products exist outside this project.
+M-VAVE, FM-1, Yamaha, DX7 and Moog are trademarks of their respective owners. VirtuoX is independent and is not affiliated with or endorsed by those companies. The VirtuoX name is a project label, not a claim of exclusive trademark rights; similarly named products exist outside this project.
 
 ## Expressive synth studies and firmware research
 
-Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 86 original artist-inspired studies and twelve attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open, JIANT, SLOOP and Felucca.
+Player has synth-only global pages, mono/analog legato and glide, analog pitch bend, modulation and eight project slots with JSON backups. Piano Coach includes 86 original artist-inspired studies and twelve attributed Mutopia MIDI editions. Musical licenses are documented separately in THIRD_PARTY.md. Full native FM-1 parity is unfinished: the browser currently has one sequence track, no stock sampler and no external MIDI-clock engine. See [firmware research and feature comparison](https://telespial.github.io/virtuox-mvave-fm1/firmware-research.html) for official FM1 Open and other open-source firmware.
 
 Yamaha and DX7 are trademarks of Yamaha Corporation. VirtuoX is an independent project and is not affiliated with or endorsed by Yamaha.
 
@@ -122,4 +122,4 @@ Choose Installed sound library in Sounds or Styles, or GLO → Instrument mode �
 
 ## Factory-first installation page
 
-The installer has two explicit stages: download and restore original FM-1 V15 using the official updater, then confirm factory installation before opening the VirtuoX stage. No native VirtuoX firmware is released yet; its flash action remains disabled. JIANT is not an installation dependency. The original emulator, hidden tab and iframe bridge are removed; required panel source attribution remains.
+The installer has two explicit stages: download and restore original FM-1 V15 using the official updater, then confirm factory installation before opening the VirtuoX stage. No native VirtuoX firmware is released yet; its flash action remains disabled. The original emulator, hidden tab and iframe bridge are removed; required panel source attribution remains.
