@@ -125,3 +125,5 @@ Choose Installed sound library in Sounds or Styles, or GLO → Instrument mode �
 The installer has two explicit stages: download and restore original FM-1 V15 using the official updater, then confirm factory installation before opening the VirtuoX stage. No native VirtuoX firmware is released yet; its flash action remains disabled. The original emulator, hidden tab and iframe bridge are removed; required panel source attribution remains.
 
 Every named learning style now supplies 25 original 8–16-bar arrangements (200 total), with five progression levels and contrasting sections. Moog has 25 tracks; Bach-style, Mozart-style and Classical each have 25 original educational compositions, clearly distinguished from the 12 complete historical MIDI editions. Dr Dray and Drayk are the current labels; prior links and saved style names are migrated.
+
+You can also try Virtuox Mvave in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
